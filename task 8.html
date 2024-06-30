@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Get IP Address</title>
+</head>
+<body>
+  <button id="getIpButton" onclick="getIpAddress()">Get IP</button>
+
+  <script>
+    function getIpAddress() {
+      var button = document.getElementById('getIpButton');
+      var apiUrl = 'https://api.ipify.org/';
+
+      
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.text();
+        })
+        .then(data => {
+         
+          button.textContent = data;
+        })
+        .catch(error => {
+         
+          alert('Error fetching IP address: ' + error.message);
+        });
+    }
+  </script>
+</body>
+</html>
