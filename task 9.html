@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Form Data Submission</title>
+    <script>
+        function submitForm() {
+           
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+
+            
+            const timestamp = new Date().toLocaleString();
+
+            const formData = {
+                "name": name,
+                "age": age,
+                "timestamp": timestamp
+            };
+
+            const popupMessage = `Your name is: ${formData.name}\nYour age is: ${formData.age}\nTimestamp: ${formData.timestamp}`;
+            alert(popupMessage);
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+
+        <label for="age">Age:</label><br>
+        <input type="text" id="age" name="age" placeholder="Enter your age"><br><br>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+</body>
+</html>
