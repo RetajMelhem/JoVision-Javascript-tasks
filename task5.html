@@ -1,0 +1,88 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Array Operations</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 10px;
+    }
+</style>
+</head>
+<body>
+    <button id="buttonA">Operation A</button>
+    <button id="buttonB">Operation B</button>
+    <button id="buttonC">Operation C</button>
+    <button id="buttonD">Operation D</button>
+    <button id="buttonE">Operation E</button>
+
+    <script>
+ 
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        document.getElementById('buttonA').addEventListener('click', function() {
+     
+            let numbers = Array.from({ length: 101 }, (_, index) => index); // Create array from 0 to 100
+
+           
+            numbers = numbers.filter(num => num % 3 !== 0);
+
+            console.log("Operation A result:", numbers);
+        });
+
+        document.getElementById('buttonB').addEventListener('click', function() {
+            
+            let numbers = Array.from({ length: 101 }, (_, index) => index); // Create array from 0 to 100
+
+            for (let i = 100; i <= 150; i++) {
+                numbers.push(i);
+            }
+
+            console.log("Operation B result:", numbers);
+        });
+
+        document.getElementById('buttonC').addEventListener('click', function() {
+       
+            let numbers = Array.from({ length: 101 }, (_, index) => index); // Create array from 0 to 100
+
+   
+            numbers = numbers.map(num => num + 3);
+
+            console.log("Operation C result:", numbers);
+        });
+
+        document.getElementById('buttonD').addEventListener('click', function() {
+       
+            let numbers = Array.from({ length: 101 }, (_, index) => index); // Create array from 0 to 100
+
+            let sliceResult = numbers.slice(20, 41);
+
+            console.log("Operation D result:", sliceResult);
+        });
+
+        document.getElementById('buttonE').addEventListener('click', function() {
+         
+            let numbers = Array.from({ length: 101 }, (_, index) => index); // Create array from 0 to 100
+
+            numbers = shuffleArray(numbers);
+            console.log("Shuffled array:", numbers);
+
+            numbers.sort((a, b) => b - a);
+            console.log("Sorted in descending order:", numbers);
+        });
+    </script>
+</body>
+</html>
