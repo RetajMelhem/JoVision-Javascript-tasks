@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Get IP Address</title>
+</head>
+<body>
+  <button id="getIpButton">Get IP</button>
+
+  <script>
+   
+    document.getElementById('getIpButton').addEventListener('click', function() {
+      
+      fetch('https://api.ipify.org/')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.text();
+        })
+        .then(ipAddress => {
+          console.log('Your IP address is:', ipAddress);
+        })
+        .catch(error => {
+          console.error('There was a problem with your fetch operation:', error);
+        });
+    });
+  </script>
+</body>
+</html>
